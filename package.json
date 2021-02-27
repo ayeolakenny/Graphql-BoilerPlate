@@ -16,6 +16,7 @@
     "mongodb": "^3.6.4",
     "mongoose": "^5.11.16",
     "nodemailer": "^6.4.18",
+    "nodemon": "^2.0.7",
     "reflect-metadata": "^0.1.13",
     "type-graphql": "^1.1.1",
     "uuid": "^8.3.2"
@@ -37,6 +38,8 @@
     "typescript": "^4.1.5"
   },
   "scripts": {
-    "dev": "ts-node-dev --respawn src/index.ts"
+    "watch": "tsc -watch",
+    "dev": "nodemon dist/index.js",
+    "dev2": "ts-node-dev --respawn src/index.ts"
   }
 }
