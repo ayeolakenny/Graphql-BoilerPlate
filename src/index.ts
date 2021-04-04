@@ -10,14 +10,18 @@ import { ObjectIdScalar } from "./object-id.scalar";
 import { HelloResolver } from "./resolvers/hello";
 import { TypegooseMiddleware } from "./typegoose-middleware";
 
-const MONGO_DB_URL = "mongodb://localhost:27017/resale";
+const MONGO_DB_URL = "mongodb://localhost:27017/resturant";
 
 const main = async () => {
   try {
     const app = express();
 
     //connect to the database
-    const mongoose = await connect(MONGO_DB_URL);
+    const mongoose = await connect(MONGO_DB_URL, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+      useCreateIndex: true,
+    });
     mongoose.connection.on("open", () => console.log("DB CONNECTED"));
 
     //configure crossite origin requests
